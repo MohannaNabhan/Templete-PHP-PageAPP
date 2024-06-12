@@ -1,0 +1,17 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} !^/public/ [NC]
+RewriteRule . index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^public/(.*\.(js|html|css|png|svg|jpg))$ public/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^public/(.*)$ index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+
+
